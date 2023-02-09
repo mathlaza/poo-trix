@@ -1,3 +1,5 @@
+// Classe Payment
+
 class Payment {
   private id: string | undefined; // undefined se os dados não estiverem no banco (Ex: antes do cadastro)
   private payByPerson: string;
