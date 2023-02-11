@@ -1,5 +1,8 @@
 # API OO Trix
 
+## Projeto disponibilizado pela Trybe durante o módulo de back-end para estudo de `Mongoose` e `POO`.
+<br>
+
 Uma API orientada a objetos para gerenciamento de transferências bancárias.
 
 Essa API é usada como exemplo didático para o bloco de Arquitetura de Software do Curso de Desenvolvimento Web da Trybe.

@@ -30,6 +30,14 @@ class TransferService {
     // Retornar os dados com o id
     return this.createPaymentDomain(newPayment);
   }
+
+  public async getAllTransfers() {
+    const paymentODM = new PaymentODM();
+    const payments = await paymentODM.find();
+    const paymentArray = payments.map((payment) =>
+      this.createPaymentDomain(payment));
+    return paymentArray;
+  }
 }
 
 export default TransferService;
