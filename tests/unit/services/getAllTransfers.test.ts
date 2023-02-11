@@ -1,5 +1,3 @@
-// tests/unit/services/getAllTransfers.test.ts
-
 import { expect } from 'chai';
 import sinon from 'sinon';
 import { Model } from 'mongoose';

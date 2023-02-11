@@ -38,6 +38,14 @@ class TransferService {
       this.createPaymentDomain(payment));
     return paymentArray;
   }
+
+  public async getByKey(key: string) {
+    const paymentODM = new PaymentODM();
+    const payments = await paymentODM.findByKey(key);
+    const paymentArray = payments
+      .map((payment) => this.createPaymentDomain(payment));
+    return paymentArray;
+  }
 }
 
 export default TransferService;
