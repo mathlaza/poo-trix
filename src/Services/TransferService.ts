@@ -16,6 +16,7 @@ class TransferService {
         payment.amount,
         payment.key,
         payment.id,
+        payment.status,
       );
     }
     return null;
@@ -45,6 +46,14 @@ class TransferService {
     const paymentArray = payments
       .map((payment) => this.createPaymentDomain(payment));
     return paymentArray;
+  }
+
+  public async undoTransfer(id: string, payment: IPayment) {
+    if (!this.isValidKey(payment.key)) throw new Error('Invalid Key!');
+
+    const paymentODM = new PaymentODM();
+    const result = await paymentODM.update(id, payment);
+    return result;
   }
 }
 

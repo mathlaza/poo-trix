@@ -5,6 +5,8 @@ import {
   Schema,
   model,
   models,
+  isValidObjectId,
+  UpdateQuery,
 } from 'mongoose';
 import IPayment from '../Interfaces/IPayment';
 
@@ -18,20 +20,35 @@ class PaymentODM {
       payToPerson: { type: String, required: true },
       amount: { type: Number, required: true },
       key: { type: String, required: true },
+      status: { type: Number },
     });
     this.model = models.Payment || model('Payment', this.schema); // Antes de criar o Schema, verificar se o schema já existe. Caso não exista, o schema será criado. 
   }
 
   public async createDoc(payment: IPayment): Promise<IPayment> {
-    return this.model.create({ ...payment });
+    const result = await this.model.create({ ...payment });
+    return result;
   }
 
   public async find(): Promise<IPayment[]> {
-    return this.model.find();
+    const result = await this.model.find();
+    return result;
   }
 
   public async findByKey(key: string): Promise<IPayment[]> {
-    return this.model.find({ key });
+    const result = await this.model.find({ key });
+    return result;
+  }
+
+  public async update(id: string, entity: Partial<IPayment>) {
+    if (!isValidObjectId(id)) throw new Error('Invalid Mongo ID!');
+
+    const result = await this.model.findByIdAndUpdate(
+      { _id: id },
+      { ...entity } as UpdateQuery<IPayment>,
+      { new: true },
+    );
+    return result;
   }
 }
 

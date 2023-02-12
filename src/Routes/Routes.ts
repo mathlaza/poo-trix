@@ -18,4 +18,9 @@ routes.get(
   (req, res, next) => new TransferController(req, res, next).getByKey(),
 );
 
+routes.patch(
+  '/transfer/:id',
+  (req, res, next) => new TransferController(req, res, next).reversalRequest(),
+);
+
 export default routes;
