@@ -1,6 +1,9 @@
 import { expect } from 'chai';
 import sinon from 'sinon';
-import { model } from 'mongoose';
+import { Model } from 'mongoose';
+import Key from '../../../src/Domain/Key/Key';
+import IKey from '../../../src/Interfaces/IKey';
+import KeyService from '../../../src/Services/KeyService';
 
 const RESULT_ERROR = 'Invalid Key';
 
@@ -18,7 +21,7 @@ describe('Deveria validar e criar chaves', function () {
       'cpf',
       '633ec9fa3df977e30e993492',
     );
-    // sinon.stub(Model, 'create').resolves(keyOutput);
+    sinon.stub(Model, 'create').resolves(keyOutput);
 
     // Act
     const service = new KeyService();
@@ -35,7 +38,7 @@ describe('Deveria validar e criar chaves', function () {
       owner: 'Jack C.',
       type: 'cpf',
     };
-    // sinon.stub(Model, 'create').resolves({});
+    sinon.stub(Model, 'create').resolves({});
 
     // Act
     try {
@@ -60,7 +63,7 @@ describe('Deveria validar e criar chaves', function () {
       'phonenumber',
       '633ec9fa3df977e30e993492',
     );
-    // sinon.stub(Model, 'create').resolves(keyOutput);
+    sinon.stub(Model, 'create').resolves(keyOutput);
 
     // Act
     const service = new KeyService();
@@ -77,7 +80,7 @@ describe('Deveria validar e criar chaves', function () {
       owner: 'Abreu L.',
       type: 'phonenumber',
     };
-    // sinon.stub(Model, 'create').resolves({});
+    sinon.stub(Model, 'create').resolves({});
 
     // Act
     try {
@@ -89,6 +92,6 @@ describe('Deveria validar e criar chaves', function () {
     }
   });
   afterEach(function () {
-    // sinon.restore();
+    sinon.restore();
   });
 });
