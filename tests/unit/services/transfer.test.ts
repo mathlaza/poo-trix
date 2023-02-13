@@ -4,6 +4,8 @@ import { Model } from 'mongoose';
 import IPayment from '../../../src/Interfaces/IPayment';
 import TransferService from '../../../src/Services/TransferService';
 import Payment from '../../../src/Domain/Payment';
+import PaymentStatus from '../../../src/utils/PaymentStatus';
+import Key from '../../../src/Domain/Key/Key';
 
 describe('Deveria criar uma transferência TRIX', function () {
   it('Deveria criar uma transferência TRIX com SUCESSO', async function () {
@@ -20,8 +22,16 @@ describe('Deveria criar uma transferência TRIX', function () {
       50000,
       '858.898.670-16',
       '63319d80feb9f483ee823ac5',
+      PaymentStatus.concluded,
+    );
+    const outputKey = new Key(
+      '858.596.456-08',
+      'Carla',
+      'cpf',
+      '633ec9fa3df977e30e993492',
     );
     sinon.stub(Model, 'create').resolves(paymentOutput);
+    sinon.stub(Model, 'findOne').resolves(outputKey);
 
     // Act
     const service = new TransferService();
@@ -41,6 +51,7 @@ describe('Deveria criar uma transferência TRIX', function () {
     };
 
     sinon.stub(Model, 'create').resolves({});
+    sinon.stub(Model, 'findOne').resolves(false);
 
     // Act
     try {
@@ -48,7 +59,7 @@ describe('Deveria criar uma transferência TRIX', function () {
       await service.transfer(paymentInput);
     } catch (error) {
       // Assert
-      expect((error as Error).message).to.be.equal('Invalid Key!');
+      expect((error as Error).message).to.be.equal('Key not found');
     }
   });
 
