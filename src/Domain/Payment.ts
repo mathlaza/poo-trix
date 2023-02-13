@@ -1,4 +1,4 @@
-// Classe Payment
+// Classe de domínio Payment
 import PaymentStatus from '../utils/PaymentStatus';
 
 class Payment {
