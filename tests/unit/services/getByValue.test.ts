@@ -18,7 +18,7 @@ describe('Deveria buscar uma chave por valor', function () {
 
     // Act
     const service = new KeyService();
-    const result = service.getByValue('+55 (18) 99765-1187');
+    const result = await service.getByValue('+55 (18) 99765-1187');
 
     // Assert
     expect(result).to.be.deep.equal(KeyOutput);

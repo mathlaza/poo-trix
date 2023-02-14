@@ -27,7 +27,7 @@ class TransferService {
     // Criar instância da Model de Payment usando Mongoose
     const paymentODM = new PaymentODM();
     // Inserir os dados no banco
-    const newPayment = await paymentODM.createDoc(payment);
+    const newPayment = await paymentODM.create(payment);
     // Retornar os dados com o id
     return this.createPaymentDomain(newPayment);
   }

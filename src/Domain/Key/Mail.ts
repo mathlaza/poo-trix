@@ -9,7 +9,7 @@ class Mail implements IKey, IValid {
   readonly type: string;
 
   constructor(value: string, keyOwner: string) {
-    if (!this.isValid(value)) throw Error('Invalid Key');
+    if (!this.isValid(value)) throw Error('Invalid Key!');
     this.value = value;
     this.owner = keyOwner;
     this.type = KeyTypes.MAIL;

@@ -13,7 +13,9 @@ class KeyODM extends AbstractODM<IKey> {
   }
 
   public async findByValue(value: string): Promise<IKey | null> {
-    return this.model.findOne({ value });
+    const result = await this.model.findOne({ value });
+    
+    return result;
   }
 }
 
