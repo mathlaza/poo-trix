@@ -4,6 +4,7 @@ import CPF from './CPF';
 import PhoneNumber from './PhoneNumber';
 import IValid from '../../Interfaces/IValid';
 import Mail from './Mail';
+import Random from './Random';
 
 class KeyFactory {
   public static create(key: IKey): IKey & IValid {
@@ -15,6 +16,9 @@ class KeyFactory {
     }
     if (key.type === KeyTypes.MAIL) {
       return new Mail(key.value, key.owner);
+    }
+    if (key.type === KeyTypes.RANDOM) {
+      return new Random(key.value, key.owner);
     }
     throw new Error('Invalid Key Type!');
   }
