@@ -59,7 +59,7 @@ describe('Deveria criar uma transferência TRIX', function () {
       await service.transfer(paymentInput);
     } catch (error) {
       // Assert
-      expect((error as Error).message).to.be.equal('Invalid Key!');
+      expect((error as Error).message).to.be.equal('Key not found!');
     }
   });
 
