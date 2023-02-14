@@ -1,30 +1,17 @@
 # API OO Trix
 
-## Projeto disponibilizado pela Trybe durante o módulo de back-end para estudo de `Mongoose` e `POO`.
+## Projeto disponibilizado pela Trybe e construído durante as aulas do módulo de back-end, para estudo de `Mongoose` e `POO`.
 <br>
 
 Uma API orientada a objetos para gerenciamento de transferências bancárias.
 
 Essa API é usada como exemplo didático para o bloco de Arquitetura de Software do Curso de Desenvolvimento Web da Trybe.
 
-<details>
-  <summary>Branches no repositório</summary>
-
-  1. `main`: Configurações de linter e configurações gerais;
-  2. `application-course`: Conteúdo ensinado no course;
-  3. `application-live-lectures`: Conteúdo ensinado no course juntamente com a aula ao vivo;
-  4. `application-course-part-2`: Conteúdo ensinado no course;
-  5. `application-live-lectures-part-2`: Conteúdo ensinado no course juntamente com a aula ao vivo
-
 </details>
 
+<br>
+
 ## Rodando a aplicação inicial via Docker
-
-- Após clonar o repositório, vá até a branch desejada:
-
-```bash
-  git checkout #BRANCH_NAME
-```
 
 - Inicie os contêineres via Docker Compose:
   
@@ -47,6 +34,8 @@ Essa API é usada como exemplo didático para o bloco de Arquitetura de Software
 ```bash
   docker exec -it trix bash
 ```
+<br>
+<hr>
 
 ## Lista de endpoints
 
@@ -63,6 +52,8 @@ Essa API é usada como exemplo didático para o bloco de Arquitetura de Software
   6. Clique em OK.
 
 </details>
+
+<br>
 
 ### 1° Dia
 
